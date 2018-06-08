@@ -1,0 +1,469 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "fortnite buddy",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "cancel"
+                    ]
+                },
+                {
+                    "name": "whichWeekIntent",
+                    "slots": [
+                        {
+                            "name": "weekNum",
+                            "type": "weekNumber"
+                        }
+                    ],
+                    "samples": [
+                        "week {weekNum}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "help"
+                    ]
+                },
+                {
+                    "name": "getWeeklyChallengesIntent",
+                    "slots": [
+                        {
+                            "name": "weekNum",
+                            "type": "weekNumber"
+                        }
+                    ],
+                    "samples": [
+                        "tell me the challenges for week {weekNum}",
+                        "tell me the week {weekNum} challenges",
+                        "week {weekNum} challenges",
+                        "tell me the {weekNum} challenges"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "exit fortnite buddy",
+                        "quit fortnite buddy",
+                        "fortnite buddy exit",
+                        "fortnite buddy quit",
+                        "leave fortnite buddy"
+                    ]
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "listChallengesByModifierIntent",
+                    "slots": [
+                        {
+                            "name": "modifier",
+                            "type": "modifierType"
+                        }
+                    ],
+                    "samples": [
+                        "search {modifier}",
+                        "are there any {modifier} challenges",
+                        "search {modifier} challenges",
+                        "give me a list of {modifier} challenges",
+                        "search for {modifier} challenges",
+                        "list the {modifier} challenges",
+                        "{modifier} challenges",
+                        "tell me the {modifier} challenges"
+                    ]
+                },
+                {
+                    "name": "ChallengeSearchHelpIntent",
+                    "slots": [
+                        {
+                            "name": "DemandOrRequest",
+                            "type": "Demand_Or_Request"
+                        }
+                    ],
+                    "samples": [
+                        "give me more info on challenge search",
+                        "help me with challenge search",
+                        "tell me more about challenge search",
+                        "more info about challenge search",
+                        "help with challenge search",
+                        "give me more info on challenge search {DemandOrRequest}",
+                        "help me with challenge search {DemandOrRequest}",
+                        "tell me more about challenge search {DemandOrRequest}",
+                        "more info about challenge search {DemandOrRequest}",
+                        "help with challenge search {DemandOrRequest}",
+                        "give me more info on challenge list",
+                        "help me with challenge list",
+                        "tell me more about challenge list",
+                        "more info about challenge list",
+                        "help with challenge list",
+                        "give me more info on challenge list {DemandOrRequest}",
+                        "help me with challenge list {DemandOrRequest}",
+                        "tell me more about challenge list {DemandOrRequest}",
+                        "more info about challenge list {DemandOrRequest}",
+                        "help with challenge list {DemandOrRequest}"
+                    ]
+                },
+                {
+                    "name": "ChallengeSearchListAllSearchTermsIntent",
+                    "slots": [],
+                    "samples": [
+                        "Tell me all of the search terms",
+                        "list all search terms",
+                        "what are all the search terms",
+                        "challenge search search terms",
+                        "search terms",
+                        "tell me all search terms"
+                    ]
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "WhereWeDroppingIntent",
+                    "slots": [],
+                    "samples": [
+                        "where we dropping guys",
+                        "where we dropping boys",
+                        "where we dropping girls",
+                        "where we dropping ladies",
+                        "where should I drop at",
+                        "random drop location",
+                        "random drop spot",
+                        "give me a random drop location",
+                        "where should we drop at",
+                        "tell me where to drop at",
+                        "tell us where to drop at",
+                        "random drop"
+
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "challengeNumber",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "one"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "two"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "three"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "four"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "five"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "six"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seven"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "weekNumber",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "1"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "2"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "3"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "4"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "5"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "6"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "7"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "8"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "9"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "10"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "11"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "carbide"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blockbuster"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "modifierType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "easy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hard"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "weapon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "build"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "elimination"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "location"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "visit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "treasure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "varied"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "CUSTOM_LocationName",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Anarchy Acres"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dusty Divot"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fatal Fields"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Flush Factory"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Greasy Grove"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Haunted Hills"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Junk Junction"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lonely Lodge"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Loot Lake"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lucky Landing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Moisty Mire"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pleasant Park"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Retail Row"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Risky Reels"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Salty Springs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Shifty Shafts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Snobby Shores"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tilted Towers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tomato Town"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Wailing Woods"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Demand_Or_Request",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "please"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "now"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,1 @@
+"Anarchy Acres","Dusty Divot","Fatal Fields","Flush Factory","Greasy Grove","Haunted Hills","Junk Junction","Lonely Lodge","Loot Lake","Lucky Landing","Moisty Mire","Pleasant Park","Retail Row","Risky Reels","Salty Springs","Shifty Shafts","Snobby Shores","Tilted Towers","Tomato Town","Wailing Woods"

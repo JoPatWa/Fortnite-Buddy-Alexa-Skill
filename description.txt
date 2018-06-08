@@ -1,0 +1,56 @@
+The most complete Fortnite related Alexa skill on the market!
+
+*****************
+|   Update 2    |
+*****************
+|  June 8 2018  |
+*****************
+The most complete Fortnite Skill on the market had to get it eventually! Fortnite Buddy's random drop location feature has been added. Of course you can ask by saying "Where we dropping boys?" along with other related phrases.
+
+- Random Dropper
+---- Say: Where we dropping boys, where we dropping girls, where we dropping guys, where should I drop at, random drop location, random drop spot, give me a random drop location, where should we drop at, tell me where to drop at, tell us where to drop at, random drop
+
+
+**************
+|  Update 1  |
+**************
+Are you good at weapon challenges? Do you want to go ahead and knock out all weapon challenges? Just use the Challenge Search Feature and hear a comprehensive list of any specific type of challenge.
+
+- Challenge Search Feature
+---- Say: Search Weapon Challenges, Search Location Challenges, Search Treasure Challenges, Search Easy Challenges, Search Hard Challenges, and more.
+
+---- Search Terms: Weapon challenges, build challenges, elimination challenges, visit challenges, location challenges, hard challenges, easy challenges, treasure challenges, and varied challenges...
+
+- Carbide and Blockbuster Challenges Added 
+---- Say: tell me the carbide challenges or tell me the blockbuster challenges
+
+******************
+|  Coming Soon   |
+******************
+- Fortnite Encyclopedia Feature
+---- All of the information you could ever want about Fortnite
+    ---- Details and strategy for every location
+    ---- Information for all weapons
+    ---- Item Information
+    ---- Building Tips
+    ---- Information on limited time events
+    ---- Battle Pass Explanation and information
+    ---- Development Notes
+    ---- Other Interesting bits of information
+
+- Recent Fortnite News Feature
+---- Ask for the latest Fortnite News to stay up to date.
+
+- Random Drop Location Upgrade
+---- Ability to remove locations if you want random but with a little more control
+
+- Vending Locations Coordinates Feature
+
+***************************************************
+|  LET ME KNOW WHAT YOU WOULD LIKE ADDED OR FIXED |
+***************************************************
+| Email: jpw.alexa.skills@gmail.com               |
+***************************************************
+Encounter a bug or have an idea to make Fortnite Buddy better? Just send an email and I will get back to you within 1 business day.
+
+Thanks for using Fortnite Buddy. Before leaving any overly critical feedback (poor reviews) about any bugs or similar please contact me so I can attempt to rectify the issue.
