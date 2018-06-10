@@ -74,6 +74,7 @@ function onIntentRequest(event, context) {
         console.log("Inside List All Search Terms Intent");
         listAllSearchTerms(event, context);
     } else if (intent.name === "WhereWeDroppingIntent") {
+        eventRequestTypeName = intent.name;
         console.log("Inside WhereWeDroppingIntent");
         randomDropSpot(event, context);
     } else if (intent.name === 'AMAZON.HelpIntent') {
@@ -97,25 +98,13 @@ function onIntentRequest(event, context) {
 function onLaunchRequest(event, context) {
     console.log("In function onLaunchRequest");
 
-    
+
     console.log(eventRequestType, "EventRequestTypeName");
     context.succeed(
         generateResponse(buildSpeechletResponse(
             randomGreeting(), false))
     );
 }
-
-
-// function onLaunchRequest(event, context) {
-//     console.log("In function onLaunchRequest");
-
-    
-//     console.log(eventRequestType, "EventRequestTypeName");
-//     context.succeed(
-//         generateResponse(buildSpeechletResponse(
-//             "Welcome, would you like to hear weekly challenges, search for specific challenges, or get a random drop location?", false))
-//     );
-// }
 
 function onSessionEndRequest(event, context) {
     console.log("In function inEndRequest");
@@ -125,10 +114,17 @@ function onSessionEndRequest(event, context) {
     )
 }
 
+// function moreHelpChallengeSearch(event, context) {
+//     context.succeed(
+//         generateResponse(buildSpeechletResponse(
+//             "The Fortnite Buddy Challenge Search feature allows you to filter or specify the challenges you want to hear. For example, if you are a fan of weapon based challenges say, -- Search Weapon Challenges -- or if you prefer to hear challenges that are specific to a certain location say, -- Search Location Challenges --, currently there 9 different search terms you can use, more are on the way! If you want to hear a list of all the Search Terms currently available just say -- Tell me all of the search terms --  or say -- List all search terms --", false))
+//     );
+// }
+
 function moreHelpChallengeSearch(event, context) {
     context.succeed(
         generateResponse(buildSpeechletResponse(
-            "The Fortnite Buddy Challenge Search feature allows you to filter or specify the challenges you want to hear. For example, if you are a fan of weapon based challenges say, -- Search Weapon Challenges -- or if you prefer to hear challenges that are specific to a certain location say, -- Search Location Challenges --, currently there 9 different search terms you can use, more are on the way! If you want to hear a list of all the Search Terms currently available just say -- Tell me all of the search terms --  or say -- List all search terms --", false))
+            "Okay what specific types of challenges would you like to hear? Say... search location challenges, or say... search easy challenges. For a full list of possible search terms say... Tell me all of search terms", false))
     );
 }
 
@@ -138,7 +134,7 @@ function randomDropGenerator() {
 
 function randomDropSpot(event, context) {
     context.succeed(
-        generateResponse(buildSpeechletResponse("How about " + randomDropGenerator() + "? If not, just ask again!", false))
+        generateResponse(buildSpeechletResponse("", false))
     );
 }
 
@@ -302,6 +298,16 @@ function getChallengeListBySpecifier(event, context) {
                 generateResponse(buildSpeechletResponse(matches.join(","), false))
             );
             break;
+        case "weekly challenges":
+            context.succeed(
+                generateResponse(buildSpeechletResponse("Sure, Which week would you like to hear challenges from", false))
+            );
+            break;
+        case "search challenges":
+            context.succeed(
+                generateResponse(buildSpeechletResponse("Sure, what kind of challenges are you searching for? Try...weapons challenges or... search treasure challenges. To hear all search terms say... list all search terms", false))
+            );
+            break;
         default:
             console.log("in default case");
             context.succeed(
@@ -340,7 +346,7 @@ function findMatches(searchTerms, event) {
 
 
 buildChallengesResponse = (outputText, shouldEndSession, week) => {
-    let endingSentenceArray = [" What Week Would You Like To Hear Next?", " Would you like to try a Challenge Search? For example, Say...Search Weapons Challenges", " What else can I do for you? Try the challenge search or ask for another weeks challenges, Say...help... for more information on how to do this."];
+    let endingSentenceArray = ["What Week Would You Like To Hear Next?", " Would you like to try a Challenge Search? For example, Say...Search Weapons Challenges", " What else can I do for you? Try the challenge search or ask for another weeks challenges, Say...help... for more information on how to do this."];
     let randomNumber = Math.floor(Math.random() * endingSentenceArray.length);
     let tempArr = outputText.split(",");
     let title = "Season 4 - Week " + week + " Challenges"
@@ -395,8 +401,8 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             "reprompt": {
                 "outputSpeech": {
                     "type": "SSML",
-                    "text": "Are you still there? Try saying -- week 1 challenges -- to get a feel for how things work. Or try the challenge search feature by saying -- Search Treasure Challenges -- If you need more information please say -- help --",
-                    "ssml": "<speak>" + "Are you still there? Say" + "<emphasis level='strong'>" + "week 1 challenges" + "</emphasis>" + "to get a feel for how things work. Or try the challenge search feature by saying" + "<emphasis level='strong'>" + "search treasure challenges" + "</emphasis>" + "If you need more information please ask for help." + "</speak>"
+                    "text": "Say -- week 6 challenges -- to get a feel for how things work. Or try the challenge search feature by saying -- Search Treasure Challenges -- If you need more information please say -- help --",
+                    "ssml": "<speak>" + "Say" + "<emphasis level='strong'>" + "week 6 challenges" + "</emphasis>" + "to get a feel for how things work. Or try the challenge search feature by saying" + "<emphasis level='strong'>" + "search treasure challenges" + "</emphasis>" + "If you need more information please ask for help." + "</speak>"
                 },
             },
             shouldEndSession: shouldEndSession
@@ -476,6 +482,16 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             "outputSpeech": {
                 "type": "PlainText",
                 "text": outputText,
+            }
+        }
+    } else if (eventRequestTypeName === "WhereWeDroppingIntent") {
+        console.log("inside build speech for WhereWeDropping");
+        return {
+            "outputSpeech": {
+                "type": "SSML",
+                "text": "Where we dropping boys? How about " + randomDropGenerator(),
+                "ssml": "<speak><audio src='https://s3.amazonaws.com/fortnite.buddy.bucket/Where+we+dropping+boys-%5BAudioTrimmer.com%5D-%5BAudioTrimmer.com%5D.mp3' /> We droppin at " + randomDropGenerator() + "<break time='0.5s'/> If not, just ask again! </speak>"
+
             }
         }
     } else {

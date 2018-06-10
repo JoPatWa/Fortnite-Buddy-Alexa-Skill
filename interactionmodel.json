@@ -379,6 +379,16 @@
                             "name": {
                                 "value": "varied"
                             }
+                        },
+                        {
+                            "name": {
+                                "value": "weekly challenges"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "search challenges"
+                            }
                         }
                     ]
                 },
