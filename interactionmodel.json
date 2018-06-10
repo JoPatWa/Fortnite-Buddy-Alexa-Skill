@@ -177,8 +177,44 @@
                         "where should we drop at",
                         "tell me where to drop at",
                         "tell us where to drop at",
-                        "random drop"
+                        "random drop",
+                        "where should i drop in fortnite"
 
+                    ]
+                },
+                {
+                    "name": "listFullIntent",
+                    "slots": [
+                        {
+                            "name": "modifier",
+                            "type": "modifierType"
+                        }
+                    ],
+                    "samples": [
+                        "search {modifier} full list",
+                        "search {modifier} full",
+                        "search {modifier} all",
+                        "are there any {modifier} challenges full list",
+                        "search {modifier} challenges full list",
+                        "give me a list of {modifier} challenges full list",
+                        "search for {modifier} challenges full list",
+                        "list the {modifier} challenges full list",
+                        "{modifier} challenges full list",
+                        "tell me the {modifier} challenges full list",
+                        "are there any {modifier} challenges full",
+                        "search {modifier} challenges full",
+                        "give me a list of {modifier} challenges full",
+                        "search for {modifier} challenges full",
+                        "list the {modifier} challenges full",
+                        "{modifier} challenges full",
+                        "tell me the {modifier} challenges all",
+                        "are there any {modifier} challenges all",
+                        "search {modifier} challenges all",
+                        "give me a list of {modifier} challenges all",
+                        "search for {modifier} challenges all",
+                        "list the {modifier} challenges all",
+                        "{modifier} challenges all",
+                        "tell me the {modifier} challenges all"
                     ]
                 }
             ],

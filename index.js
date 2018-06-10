@@ -96,6 +96,8 @@ function onIntentRequest(event, context) {
 
 function onLaunchRequest(event, context) {
     console.log("In function onLaunchRequest");
+
+    
     console.log(eventRequestType, "EventRequestTypeName");
     context.succeed(
         generateResponse(buildSpeechletResponse(
@@ -119,12 +121,12 @@ function moreHelpChallengeSearch(event, context) {
 }
 
 function randomDropGenerator() {
-   return locationsArray[Math.floor(Math.random()*locationsArray.length)];
+    return locationsArray[Math.floor(Math.random() * locationsArray.length)];
 }
 
 function randomDropSpot(event, context) {
     context.succeed(
-        generateResponse(buildSpeechletResponse("How about " + randomDropGenerator()+ "? If not, just ask again!", false))
+        generateResponse(buildSpeechletResponse("How about " + randomDropGenerator() + "? If not, just ask again!", false))
     );
 }
 
@@ -192,7 +194,7 @@ function getChallenges(event, context) {
         context.succeed(generateResponse(buildChallengesResponse(FortniteBuddy.weeklyChallenges.week.five.list.all, false, week)));
     } else if (week == "6") {
         context.succeed(generateResponse(buildChallengesResponse(FortniteBuddy.weeklyChallenges.week.six.list.all, false, week)));
-    }  
+    }
     // else if (week == "2") {
     //     context.succeed(generateResponse(buildChallengesResponse(FortniteBuddy.weeklyChallenges.week.two.list.all, false, week)));
     // } else if (week == "3") {
@@ -320,8 +322,8 @@ function findMatches(searchTerms, event) {
                 }
             }
         }
-        return matchesArray;
     }
+    return matchesArray;
 }
 
 
