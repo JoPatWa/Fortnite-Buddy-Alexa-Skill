@@ -105,6 +105,18 @@ function onLaunchRequest(event, context) {
     );
 }
 
+
+// function onLaunchRequest(event, context) {
+//     console.log("In function onLaunchRequest");
+
+    
+//     console.log(eventRequestType, "EventRequestTypeName");
+//     context.succeed(
+//         generateResponse(buildSpeechletResponse(
+//             "Welcome, would you like to hear weekly challenges, search for specific challenges, or get a random drop location?", false))
+//     );
+// }
+
 function onSessionEndRequest(event, context) {
     console.log("In function inEndRequest");
     console.log(eventRequestType, "EventRequestTypeName")

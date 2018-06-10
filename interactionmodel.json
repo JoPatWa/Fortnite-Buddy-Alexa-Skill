@@ -21,6 +21,7 @@
                         "week {weekNum}"
                     ]
                 },
+                
                 {
                     "name": "AMAZON.HelpIntent",
                     "samples": [
@@ -49,7 +50,9 @@
                         "quit fortnite buddy",
                         "fortnite buddy exit",
                         "fortnite buddy quit",
-                        "leave fortnite buddy"
+                        "leave fortnite buddy",
+                        "that will be all"
+                        
                     ]
                 },
                 {
