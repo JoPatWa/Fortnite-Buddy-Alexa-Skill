@@ -490,7 +490,7 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             "outputSpeech": {
                 "type": "SSML",
                 "text": "Where we dropping boys? How about " + randomDropGenerator(),
-                "ssml": "<speak><audio src='https://s3.amazonaws.com/fortnite.buddy.bucket/Where+we+dropping+boys-%5BAudioTrimmer.com%5D-%5BAudioTrimmer.com%5D.mp3' /> We droppin at " + randomDropGenerator() + "<break time='0.5s'/> If not, just ask again! </speak>"
+                "ssml": "<speak><audio src='https://s3.amazonaws.com/fortnite.buddy.bucket/Where+we+dropping+boys-%5BAudioTrimmer.com%5D-%5BAudioTrimmer.com%5D.mp3' /> We droppin at " + randomDropGenerator() + "</speak>"
 
             }
         }
