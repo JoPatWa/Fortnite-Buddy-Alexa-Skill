@@ -134,9 +134,10 @@ function randomDropGenerator() {
 
 function randomDropSpot(event, context) {
     context.succeed(
-        generateResponse(buildSpeechletResponse("", false))
+        generateResponse(buildSpeechletResponse("How about " + randomDropGenerator() + "?", false))
     );
 }
+
 
 
 function listAllSearchTerms(event, context) {
@@ -392,6 +393,7 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             },
             "card": {
                 "type": "Standard",
+                "title": "Fortnite Buddy - The All-In-One Fortnite Resource",
                 "text": outputText,
                 "image": {
                     "smallImageUrl": "https://s3.amazonaws.com/fortnite.buddy.bucket/fortniteBuddyLaunchSmall.png",
@@ -484,16 +486,6 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
                 "text": outputText,
             }
         }
-    } else if (eventRequestTypeName === "WhereWeDroppingIntent") {
-        console.log("inside build speech for WhereWeDropping");
-        return {
-            "outputSpeech": {
-                "type": "SSML",
-                "text": "Where we dropping boys? How about " + randomDropGenerator(),
-                "ssml": "<speak><audio src='https://s3.amazonaws.com/fortnite.buddy.bucket/Where+we+dropping+boys-%5BAudioTrimmer.com%5D-%5BAudioTrimmer.com%5D.mp3' /> We droppin at " + randomDropGenerator() + "</speak>"
-
-            }
-        }
     } else {
         console.log("In the final else of build speechlet");
         return {
@@ -504,7 +496,7 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             "card": {
                 "type": "Standard",
                 "text": outputText,
-                "title": "Fortnite Buddy",
+                "title": "Fortnite Buddy - The All-In-One Fortnite Resource",
             },
             shouldEndSession: shouldEndSession
         };
