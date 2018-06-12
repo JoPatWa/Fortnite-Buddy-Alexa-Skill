@@ -114,13 +114,6 @@ function onSessionEndRequest(event, context) {
     )
 }
 
-// function moreHelpChallengeSearch(event, context) {
-//     context.succeed(
-//         generateResponse(buildSpeechletResponse(
-//             "The Fortnite Buddy Challenge Search feature allows you to filter or specify the challenges you want to hear. For example, if you are a fan of weapon based challenges say, -- Search Weapon Challenges -- or if you prefer to hear challenges that are specific to a certain location say, -- Search Location Challenges --, currently there 9 different search terms you can use, more are on the way! If you want to hear a list of all the Search Terms currently available just say -- Tell me all of the search terms --  or say -- List all search terms --", false))
-//     );
-// }
-
 function moreHelpChallengeSearch(event, context) {
     context.succeed(
         generateResponse(buildSpeechletResponse(
@@ -137,8 +130,6 @@ function randomDropSpot(event, context) {
         generateResponse(buildSpeechletResponse("How about " + randomDropGenerator() + "?", false))
     );
 }
-
-
 
 function listAllSearchTerms(event, context) {
     context.succeed(
@@ -203,6 +194,8 @@ function getChallenges(event, context) {
         context.succeed(generateResponse(buildChallengesResponse(FortniteBuddy.weeklyChallenges.week.five.list.all, false, week)));
     } else if (week == "6") {
         context.succeed(generateResponse(buildChallengesResponse(FortniteBuddy.weeklyChallenges.week.six.list.all, false, week)));
+    }  else if (week == "7") {
+        context.succeed(generateResponse(buildChallengesResponse(FortniteBuddy.weeklyChallenges.week.seven.list.all, false, week)));
     }
     // else if (week == "2") {
     //     context.succeed(generateResponse(buildChallengesResponse(FortniteBuddy.weeklyChallenges.week.two.list.all, false, week)));
@@ -351,7 +344,7 @@ buildChallengesResponse = (outputText, shouldEndSession, week) => {
     let randomNumber = Math.floor(Math.random() * endingSentenceArray.length);
     let tempArr = outputText.split(",");
     let title = "Season 4 - Week " + week + " Challenges"
-    if (week > "0" && week < "7") {
+    if (week > "0" && week < "8") {
         return {
             "outputSpeech": {
                 "type": "SSML",
