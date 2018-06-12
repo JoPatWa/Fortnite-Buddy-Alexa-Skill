@@ -138,13 +138,6 @@ function listAllSearchTerms(event, context) {
     );
 }
 
-// function getExitFortniteBuddyText(event, context) {
-//     context.succeed(
-//         generateResponse(buildSpeechletResponse(
-//             "Thank you for using Fortnite Buddy.\nListen to this! The First 5 people to Leave a constructive suggestion on how to improve my skill, along with a 5 star review, will get $5. It's that easy!", true))
-//     );
-//     onSessionEndRequest(event, context);
-// }
 
 function getStopIntentText(event, context) {
     context.succeed(
