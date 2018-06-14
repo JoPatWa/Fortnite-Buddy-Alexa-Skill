@@ -30,21 +30,18 @@ exports.handler = (event, context, callback) => {
 
     try {
         if (event.session.new) {
-            console.log("NEW SESSION");
+
         }
 
         switch (event.request.type) {
             case "LaunchRequest":
-                console.log("LAUNCH REQUEST");
                 eventRequestType = event.request.type;
                 onLaunchRequest(event, context);
                 break;
             case "IntentRequest":
-                console.log("INTENT REQUEST");
                 onIntentRequest(event, context);
                 break;
             case "SessionEndedRequest":
-                console.log("SESSION END REQUEST");
                 eventRequestType = event.request.type;
                 onSessionEndRequest(event, context);
                 break;
@@ -58,11 +55,8 @@ exports.handler = (event, context, callback) => {
 };
 
 function onIntentRequest(event, context) {
-    console.log("In function onIntentRequest");
     const intent = event.request.intent;
-    console.log(intent, ": Intent");
     if (intent.name === 'getWeeklyChallengesIntent') {
-        console.log("Inside Get Weekly Challenges Intent")
         getChallenges(event, context);
     } else if (intent.name === "whichWeekIntent") {
         getChallenges(event, context);
@@ -71,16 +65,13 @@ function onIntentRequest(event, context) {
     } else if (intent.name === "listChallengesByModifierIntent") {
         getChallengeListBySpecifier(event, context);
     } else if (intent.name === "ChallengeSearchListAllSearchTermsIntent") {
-        console.log("Inside List All Search Terms Intent");
         listAllSearchTerms(event, context);
     } else if (intent.name === "WhereWeDroppingIntent") {
         eventRequestTypeName = intent.name;
-        console.log("Inside WhereWeDroppingIntent");
         randomDropSpot(event, context);
     } else if (intent.name === 'AMAZON.HelpIntent') {
         getHelpText(event, context);
     } else if (intent.name === 'ChallengeSearchHelpIntent') {
-        console.log("Inside ChallengeSearchHelpIntent")
         moreHelpChallengeSearch(event, context);
     } else if (intent.name === "AMAZON.StopIntent") {
         eventRequestTypeName = intent.name;
@@ -96,10 +87,6 @@ function onIntentRequest(event, context) {
 }
 
 function onLaunchRequest(event, context) {
-    console.log("In function onLaunchRequest");
-
-
-    console.log(eventRequestType, "EventRequestTypeName");
     context.succeed(
         generateResponse(buildSpeechletResponse(
             randomGreeting(), false))
@@ -107,8 +94,6 @@ function onLaunchRequest(event, context) {
 }
 
 function onSessionEndRequest(event, context) {
-    console.log("In function inEndRequest");
-    console.log(eventRequestType, "EventRequestTypeName")
     context.succeed(generateResponse(buildSpeechletResponse(
         "Thank you for using Fortnite Buddy, Adding Fortnite Buddy Encyclopedia Feature Very Soon, Check Back Often.", true))
     )
@@ -168,7 +153,6 @@ function randomGreeting() {
 
 function getChallenges(event, context) {
     let week = event.request.intent.slots.weekNum.value;
-    console.log("WEEK Value:", week);
     if (week == "1") {
         context.succeed(generateResponse(buildChallengesResponse(FortniteBuddy.weeklyChallenges.week.one.list.all, false, week)));
     } else if (week == "carbide") {
@@ -229,7 +213,6 @@ function getChallengeListBySpecifier(event, context) {
         case "weapon":
         case "weapons":
             matches = findMatches(weaponsArraySearchTerms, event);
-            console.log(matches);
             context.succeed(
                 generateResponse(buildSpeechletResponse(matches.join(","), false))
             );
@@ -267,7 +250,6 @@ function getChallengeListBySpecifier(event, context) {
             break;
         case "easy":
             matches = findMatches(easyChallengesArray, event);
-            console.log(matches);
             context.succeed(
                 generateResponse(buildSpeechletResponse(matches.join(","), false))
             );
@@ -296,7 +278,6 @@ function getChallengeListBySpecifier(event, context) {
             );
             break;
         default:
-            console.log("in default case");
             context.succeed(
                 generateResponse(buildSpeechletResponse("Sorry, that is not a valid search term yet...But is this a search term you would like added? Just grab my email from the Alexa Skill Page And Let me know. Now what Can i do for you?", false))
             );
@@ -305,13 +286,10 @@ function getChallengeListBySpecifier(event, context) {
 
 function findMatches(searchTerms, event) {
     let value = event.request.intent.slots.modifier.value;
-    console.log("insideFindMatches")
     var matchesArray = [];
     if (value === "hard") {
-        console.log("InsideHardChallenges")
         return hardChallengesArray;
     } else if (value === "easy") {
-        console.log("InsideEasyChallenges")
         return easyChallengesArray;
     } else if (value === "varied") {
         return miscChallengesArray;
@@ -319,7 +297,6 @@ function findMatches(searchTerms, event) {
         return buildChallengesArray;
     }
     else {
-        console.log("inside Else");
         for (var i = 0; i < challengesArray.length; i++) {
             for (var j = 0; j < searchTerms.length; j++) {
                 if (challengesArray[i].toLowerCase().includes(searchTerms[j])) {
@@ -412,7 +389,6 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             shouldEndSession: shouldEndSession
         };
     } else if (eventRequestType === "SessionEndedRequest") {
-        console.log("inside SessionEndedRequest ");
         return {
             "outputSpeech": {
                 "type": "PlainText",
@@ -457,7 +433,6 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             shouldEndSession: shouldEndSession
         };
     } else if (eventRequestTypeName === "AMAZON.StopIntent") {
-        console.log("In the AMAZON.StopIntent");
         return {
             "outputSpeech": {
                 "type": "PlainText",
@@ -465,7 +440,6 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             }
         }
     } else if (eventRequestTypeName === "AMAZON.CancelIntent") {
-        console.log("In the Amazon.CancelIntent");
         return {
             "outputSpeech": {
                 "type": "PlainText",
@@ -473,7 +447,6 @@ buildSpeechletResponse = (outputText, shouldEndSession) => {
             }
         }
     } else {
-        console.log("In the final else of build speechlet");
         return {
             "outputSpeech": {
                 "type": "PlainText",
